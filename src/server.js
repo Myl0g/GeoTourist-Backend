@@ -140,7 +140,12 @@ const schema = new GraphQLSchema({
     mutation: RootMutationType
 });
 
-app.use(cors());
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
